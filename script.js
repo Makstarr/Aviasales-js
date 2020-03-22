@@ -19,7 +19,7 @@ let cities = [],
     apiRequestData = "";
 
 
-const getData = (url,callback) => {
+const getData = (url,callback,reject = console.error) => {
     const request = new XMLHttpRequest();
 
     request.open('GET', url);
@@ -32,7 +32,7 @@ const getData = (url,callback) => {
         }
         else {
             alert('Такого варианта нет')
-            console.log(request.status);
+            reject(request.status);
         }
     });
     request.send();
