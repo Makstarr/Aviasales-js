@@ -169,7 +169,7 @@ formSearch.addEventListener('submit',
     }
     if (formData.from && formData.to){
         apiRequestData = `?depart_date=${formData.date}&origin_iata=${formData.from.code}` +
-        `&destination_iata=${formData.to.code}&one_way=true`//&token=${apiKey}`
+        `&destination_iata=${formData.to.code}&one_way=true`
         getData(proxy + calendar+apiRequestData, (response) => {
             renderTicket(response, formData.date);
         });
