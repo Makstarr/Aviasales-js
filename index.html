@@ -1,67 +1,77 @@
-<!DOCTYPE html>
+<!DOCTYPE>
+
 <html lang="ru">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ависалес</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-	<h1>Авиасалес</h1>
-	<main>
-
-		<section class="wrapper">
-			<form class="form-search">
-				<div class="wrapper__search">
-					<div class="input" style="display: block;">
-						<label>Откуда
-							<input type="text" class="input__cities-from" required>
-						</label>
-						<ul class="dropdown dropdown__cities-from">
-
-						</ul>
-					</div>
-
-					<div class="input">
-						<label>Куда
-							<input type="text" class="input__cities-to" required>
-						</label>
-						<ul class="dropdown dropdown__cities-to">
-
-						</ul>
-					</div>
-
-					<div class="input input__cities-from">
-						<label>Отправление
-							<input type="date" class="input__date-depart"  placeholder="2020-04-22" required>
-						</label>
-					</div>
-				</div>
-
-				<div class="wrapper__button">
-					<button type="submit" class="button button__search">
-						<span class="button__search-text">Найти билеты</span>
-					</button>
-				</div>
-			</form>
-		</section>
-		<section class="wrapper">
-			<section class="wrapper__ticket" id="cheapest-ticket" style="display:none">
-			</section> 
-			<section class="block__ticket" id="other-cheap-tickets" style="display:none">
-			</section> 
-		</section>
-
-
-	</main>
-	<script src="script.js">
-	</script>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Поиск билетов</title>
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Yanone+Kaffeesatz:400,500,600&display=swap&subset=cyrillic" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="title header__title">Поиск билетов Aviasales api</h1>
+            <div class="header__allert"></div>
+        </header>
+        <main class="main">
+            <div class="main__left-column">
+                <section class="search">
+                    <h2 class="title search__title">Введите данные</h2>
+                    <form action="" class="search__form">
+                        <div class="search__inputs">
+                            <div class="input">
+                                <h3>Откуда</h3>
+                                <label>
+                                    <input type="text" class="input__cities-from" required>
+                                </label>
+                                <ul class="dropdown dropdown__cities-from">
+                                </ul>
+                            </div>
+                            <div class="input">
+                                <h3>Куда</h3>
+                                <label>
+                                    <input type="text" class="input__cities-to" required>
+                                </label>
+                                <ul class="dropdown dropdown__cities-to">
+                                </ul>
+                            </div>
+                            <div class="input">
+                                <h3>Диапазон дат</h3>
+                                <label>
+                                    <input type="date" class="input__date-min" placeholder="год-месяц-день" required>
+                                </label>
+                                <h3>-</h3>
+                                <label>
+                                    <input type="date" class="input__date-max" placeholder="год-месяц-день" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="search__button">
+                            <button class="button search-button" type="submit">
+                                <span class="search-button__text">Найти билеты</span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+                <h2 class="title title-tickets" style="display: none;" >Самые дешевые билеты на выбранные даты</h2>
+                <ul class="chip-tickets" >
+                </ul>
+            </div>
+            <div class="main__right-column">
+                <h2 class="title right__title">Избранные билеты</h2>
+                <ul class="favorite-tickets">
+                </ul>
+            </div>
+        </main>
+        <div class="clouds">
+            <img src="./cloud3.png" alt="" class="cloud-three">
+            <img src="./cloud3.png" alt="" class="cloud-one">
+            <img src="./cloud3.png" alt="" class="cloud-two">
+        </div>
+        <footer class="footer">
+            <a href="#" class="footer__contact"> © 2020 <span style="font-size: 110%;"> makstarr</span></a>
+        </footer>
+        <script src="./javaScript.js">
+        </script>
+    </body>
 </html>
-
-
-
-<!--  -->
