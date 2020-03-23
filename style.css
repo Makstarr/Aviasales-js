@@ -49,7 +49,13 @@ h3{
 
 
 /* Header styles */
+header{
+    height: 220px;
+}
 .header__title{
+    text-align: center;
+    position: absolute;
+    width: 100%;
     padding-top: 0.3em;
     font-size: 4em;
     font-family: var(--font-funny);
@@ -69,7 +75,8 @@ h3{
 /* Main body styles */
 .main{
     max-width: 1200px;
-    min-width: 1200px;
+    min-width: 350px;
+    overflow: hidden;
     margin: auto;
     z-index: 10;
     display: flex;
@@ -78,6 +85,7 @@ h3{
 }
 /* Main__left styles */
 .main__left-column{
+    min-width: 350px;
     width: 69%;
     display: block;
 }
@@ -179,6 +187,7 @@ h3{
 /* Main-right styles */
 .main__right-column{
     width: 30%;
+    min-width: 250px;
     display: block;
 }
 
@@ -262,6 +271,9 @@ h3{
     color: var(--title-color)!important;
     text-decoration: none;
 }
+
+
+/* Tickets styles */
 .chip-tickets{
     list-style-type: none;
     width: 65%;
@@ -332,4 +344,14 @@ h3{
 }
 .favorite-tickets{
     font-size: 90%;
+}
+
+
+
+@media (max-width:800px){
+    .main__left-column, .main__right-column{
+        width: 100%;
+        min-height: 100px;
+    }
+
 }
