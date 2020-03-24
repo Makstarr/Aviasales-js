@@ -347,11 +347,28 @@ header{
 }
 
 
-
+.date-label-title{
+    margin: 5px;
+}
 @media (max-width:800px){
     .main__left-column, .main__right-column{
         width: 100%;
         min-height: 100px;
     }
-
+    .date-title{
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .date-defis{
+        display: none;
+        visibility: hidden;
+        height: 0;
+    }
+    .date-title{
+        display: block;
+    }
+    .right__title{
+        display: none;
+    }
 }

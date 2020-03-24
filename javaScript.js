@@ -94,15 +94,11 @@ const createCart = (data, id) =>{
 
 const renderTickets = (tickets) => {
     const perfectTickets = tickets.filter((item) => {
-        console.log(new Date(item.depart_date))
-        console.log(new Date(inputDateMin.value))
         return new Date(item.depart_date)>=new Date(inputDateMin.value)&&new Date(item.depart_date)<=new Date(inputDateMax.value)
     });
     perfectTickets.sort((a,b)=>a.value-b.value)
-    console.log(perfectTickets.length)
     document.querySelector('.title-tickets').style.display ='block';
     otherCheapTickets.innerHTML = '';
-    console.log(perfectTickets.lenght)
     perfectTickets.forEach((item,i)=>otherCheapTickets.append(createCart(item,i)))
 };
 
@@ -130,15 +126,13 @@ const addFromList = (event,list,textField)=>{
 };
 
 const handleCardMove = (event,listFrom,listTo)=>{
-    console.log(event.target.parentElement.parentElement)
     if (event.target.innerHTML==='В избранное'){
-        console.log(event.target.innerHTML)
+        document.querySelector('.right__title').style.display='block';
         event.target.innerHTML='Убрать'
         listTo.append(event.target.parentElement.parentElement)
         return
     }
     if (event.target.innerHTML==='Убрать'){
-        console.log(event.target.innerHTML)
         event.target.innerHTML='В избранное'
         listFrom.append(event.target.parentElement.parentElement)
         return
