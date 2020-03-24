@@ -75,7 +75,7 @@ header{
 /* Main body styles */
 .main{
     max-width: 1200px;
-    min-width: 350px;
+    min-width: 320px;
     overflow: hidden;
     margin: auto;
     z-index: 10;
@@ -85,7 +85,7 @@ header{
 }
 /* Main__left styles */
 .main__left-column{
-    min-width: 350px;
+    min-width: 320px;
     width: 69%;
     display: block;
 }
@@ -351,7 +351,15 @@ header{
     margin: 5px;
     display: none;
 }
-@media (max-width:800px){
+@media (max-width:1174px){
+    .input label{
+        display: flex;
+    }
+    .search__button .button{
+        width: 160px;
+        height: 50px;
+    }
+    
     .main__left-column, .main__right-column{
         width: 100%;
         min-height: 100px;
@@ -364,11 +372,12 @@ header{
     .date-defis{
         visibility: hidden;
         height: 3px;
-        margin: 0;
+        margin-left: -20px;
         padding: 0;
     }
     .date-label-title{
         display: inline-block;
+        width: 5%;
     }
     .right__title{
         display: none;
