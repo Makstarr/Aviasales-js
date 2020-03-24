@@ -349,6 +349,7 @@ header{
 
 .date-label-title{
     margin: 5px;
+    display: none;
 }
 @media (max-width:800px){
     .main__left-column, .main__right-column{
@@ -361,12 +362,13 @@ header{
         padding-bottom: 10px;
     }
     .date-defis{
-        display: none;
         visibility: hidden;
-        height: 0;
+        height: 3px;
+        margin: 0;
+        padding: 0;
     }
-    .date-title{
-        display: block;
+    .date-label-title{
+        display: inline-block;
     }
     .right__title{
         display: none;
