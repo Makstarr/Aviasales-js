@@ -16,28 +16,30 @@ const citiesApi = 'http://api.travelpayouts.com/data/ru/cities.json',
       proxy = 'https://cors-anywhere.herokuapp.com/',
       apiKey = 'd61720d70f3bf3fa8ef106bcfae844c6',
       calendar = 'http://min-prices.aviasales.ru/calendar_preload',
-      numberOfPasanger = 1; 
+      numberOfPasanger = 1;
 let cities = [],
     apiRequestData = "";
 
 // Фушкции
 const getData = (url,callback,reject = console.error) => {
-    const request = new XMLHttpRequest();
-
-    request.open('GET', url);
-
-    request.addEventListener('readystatechange', 
+    var request = {};
+    if(!request[url]) {
+        request[url] = new XMLHttpRequest();
+    }
+    //const request = new XMLHttpRequest();
+    request[url].open('GET', url);
+    request[url].addEventListener('readystatechange',
     () => {
-        if (request.readyState !==4) return;
-        if (request.status ===200) {
-            callback(request.response);
+        if (request[url].readyState !==4) return;
+        if (request[url].status ===200) {
+            callback(request[url].response);
         }
         else {
             alert.textContent = 'На выбранные даты вариантов нет';
-            reject(request.status);
+            reject(request[url].status);
         }
     });
-    request.send();
+    request[url].send();
 };
 
 const getCityName = (code) => {
@@ -65,7 +67,6 @@ const createCart = (data, id) =>{
     article.id = id;
     let deep = '';
     deep = data?
-    
     `<div class="ticket__left">
         <div class="ticket__agent">${data.gate}</div>
         <div class="ticket__rows">
@@ -78,7 +79,7 @@ const createCart = (data, id) =>{
                 <div class="ticket__changes">${
                     data.number_of_changes===1?"Одна пересадка":
                     data.number_of_changes===2?"Две пересадки":
-                    "Без пересадок"}</div> 
+                    "Без пересадок"}</div>
             </div>
         </div>
     </div>
@@ -148,17 +149,17 @@ const renderTicket = (data, date) => {
 }
 
 // События
-otherCheapTickets.addEventListener('click', 
+otherCheapTickets.addEventListener('click',
 () => handleCardMove(event,otherCheapTickets,cheapestTicket));
-cheapestTicket.addEventListener('click', 
+cheapestTicket.addEventListener('click',
 () => handleCardMove(event,otherCheapTickets,cheapestTicket));
-inputCitiesFrom.addEventListener('input', 
+inputCitiesFrom.addEventListener('input',
 () => showCity(inputCitiesFrom, dropdownCitiesFrom));
-inputCitiesTo.addEventListener('input', 
+inputCitiesTo.addEventListener('input',
 () => showCity(inputCitiesTo, dropdownCitiesTo));
-dropdownCitiesFrom.addEventListener('click', 
+dropdownCitiesFrom.addEventListener('click',
 () => addFromList(event,dropdownCitiesFrom,inputCitiesFrom));
-dropdownCitiesTo.addEventListener('click', 
+dropdownCitiesTo.addEventListener('click',
 () => addFromList(event,dropdownCitiesTo,inputCitiesTo));
 document.querySelector('body').addEventListener('click',() => {dropdownCitiesFrom.innerHTML='',dropdownCitiesTo.innerHTML=''})
 formSearch.addEventListener('submit',
